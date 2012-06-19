@@ -18,6 +18,16 @@
         func: function() {
           console.log("sample page!");
         }
+      },
+
+      {
+        //url contains /users/1
+        //http://example.com/users/1
+        path: /^\/users\/([0-9])/,
+        func: function(id) {
+          console.log("users page!");
+          console.log("user_id:" + id);
+        }
       }
     );
 

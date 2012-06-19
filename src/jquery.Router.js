@@ -12,9 +12,12 @@
       var path = this["path"];
       var func = this["func"];
       if (path && func) {
-        if (pathname.match(path)) {
+        if (params = pathname.match(path)) {
+          params.shift()
+          func.params = params
           $(function() {
-            func.apply(this);
+            func.apply(this, func.params);
+            delete(func.params);
           });
         }
       }
